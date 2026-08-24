@@ -225,6 +225,15 @@ fun main() {
         else -> println("Reprovado")
     }
 
+    // 7.2.4 Estrutura when com intervalos
+    val idadeWhenIn = 15
+    when (idadeWhenIn) {
+        in 0 .. 12 -> println("Criança")
+        in 13 .. 17 -> println("Adolescente")
+        in 18 .. 59 -> println("Adulto")
+        else -> println("Idoso")
+    }
+
 
 
 
@@ -243,7 +252,6 @@ fun main() {
 
 
 
-
     // 9. COLLECTIONS
     // 9.1 Array
     var numeros = arrayOf(1, 2, 2)
@@ -251,7 +259,7 @@ fun main() {
     numeros[1] = 50
     println(numeros[1]) // 50
     // numeros[2] = "Carlos" // não funciona (type mismatch)
-    println(numeros[3])      // não funciona (index out of bounds)
+    // println(numeros[3])   // não funciona (index out of bounds)
 
     // 9.2 List
     var frutas = listOf("Banana", "Maçã", "Laranja")
@@ -262,8 +270,81 @@ fun main() {
     println(frutas.first())          // "Banana"
     println(frutas.last())           // "Laranja"
     println(frutas.contains("Maçã")) // true
-}
 
+    // 9.3 MutableList
+    var carros = mutableListOf("Corsa", "Celta")
+    println(carros.size)         // 2
+    println(carros.last())       // Celta
+    println(carros.add("Fusca"))
+    println(carros.last())       // Fusca
+
+    // 9.4 Set
+    val cores = setOf("Azul", "Verde", "Azul")
+    println(cores)
+    // cores.add("Amarelo")  // não funciona
+    // cores.remove("Verde") // não funciona
+
+    // 9.5 MutableSet
+    val coresMutable = mutableSetOf("Azul", "Verde", "Azul")
+    println(coresMutable)
+    coresMutable.add("Amarelo")
+    coresMutable.add("Azul") // ignorado, pois já existe
+    coresMutable.remove("Verde")
+    println(coresMutable)
+
+    // 9.6 Map
+    val pessoas = mapOf(
+        "João" to 25,
+        "Maria" to 26
+    )
+    println(pessoas["João"])  // 25
+    println(pessoas["Pedro"]) // null
+
+    // 9.7 MutableMap
+    val produtos = mutableMapOf(
+        "pc" to "computador",
+        "cl" to "celular"
+    )
+    println(produtos["pc"]) // computador
+    produtos["ms"] = "mouse"
+    produtos.remove("pc")
+    println(produtos) // {cl=celular, ms=mouse}
+
+
+
+
+
+    // 10. ESTRUTURAS DE REPETIÇÃO
+    // 10.0 OPERADORES DE INTERVALO
+    1 .. 5         // 1 a 5
+    1 until 5      // 1 a 4
+    5 downTo 1     // 5 a 1
+    1 .. 10 step 2 // 1, 3, 5, 7, 9
+
+    // 10.1 Estrutura while
+    var iWhile = 0
+    while (iWhile < 10) {
+        println(iWhile)
+        iWhile++
+    }
+
+    // 10.2 Estrutura for
+    for (iFor in 1 .. 5) {
+        println(iFor)
+    }
+
+    // 10.2.1 Misturando for com listOf
+    var carrosForListOf = listOf("corsa", "celta", "fusca")
+    for (carroForListOf in carrosForListOf) {
+        println(carroForListOf)
+    }
+    for (indice in carrosForListOf.indices) {
+        println(indice)
+    }
+    for ((indice, carro) in carrosForListOf.withIndex()) {
+        println("O $carro está na posição $indice")
+    }
+}
 
 
 
@@ -290,7 +371,7 @@ fun mensagemParabens(nome: String, idade: Int) {
 }
 
 // 6.4. Função com Retorno
-fun soma(a: Int, b: Int): Int { //Se a função tem um retorno, é obrigatório declarar o tipo do retorno
+fun soma(a: Int, b: Int): Int { // Se a função tem um retorno, é obrigatório declarar o tipo do retorno
     return a + b
 }
 
