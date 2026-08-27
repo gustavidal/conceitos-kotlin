@@ -344,6 +344,32 @@ fun main() {
     for ((indice, carro) in carrosForListOf.withIndex()) {
         println("O $carro está na posição $indice")
     }
+
+
+
+
+
+    // 11. INTERAÇÕES COM COLLECTIONS
+    // 11.1 Filter
+    val numerosFilter = (1 .. 10).toList()
+    val pares = numerosFilter.filter { numero ->
+        numero % 2 == 0
+    }
+    println(pares)
+
+    // 11.2 Map
+    val numerosMap = (1 .. 5).toList()
+    val dobro = numerosMap.map { numero ->
+        numero * 2
+    }
+    println(dobro)
+
+    // 11.3 Reduce
+    val numerosReduce = (1 .. 5).toList()
+    val somaReduce = numerosReduce.reduce { acumulador, numero ->
+        acumulador + numero
+    }
+    println(somaReduce)
 }
 
 
