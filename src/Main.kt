@@ -370,6 +370,14 @@ fun main() {
         acumulador + numero
     }
     println(somaReduce)
+
+    // 11.4 Filter, Map e Reduce
+    val numerosTodos = (1 .. 5).toList()
+    val resultTodos = numerosTodos
+        .filter { it % 2 == 0 }
+        .map { it * 2 }
+        .reduce { acc, n -> acc + n }
+    println(resultTodos)
 }
 
 
