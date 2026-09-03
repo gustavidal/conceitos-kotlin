@@ -1,4 +1,5 @@
 import model.Carro
+import model.CarroTunado
 
 /*****************************************************
  * Objetivo: Aprender os conceitos de classe no Kotlin
@@ -8,12 +9,19 @@ import model.Carro
 
 // 12. CLASSES
 fun main() {
-    val carro = Carro("fusca", 1994)
+    val carro = Carro()
+    val carroTunado = CarroTunado()
 
-//    carro.modelo = "fusca"
-//    carro.ano = 1994
+    carro.modelo = "fusca"
+    carro.ano = 1994
+    carroTunado.modelo = "silvia"
+    carroTunado.ano = 1999
+    carroTunado.ranking = 's'
 
-    println(carro)
     println(carro.modelo)
     println(carro.ano)
+    println(carro.consultarKm())
+
+    carro.acelerar()
+    carroTunado.acelerar()
 }
